@@ -7,8 +7,6 @@ heights = []
 weights = []
 bmi = []
 
-i = 0
-
 # should call a function with height and weight as parameters that returns BMI ((weight x 703)/height^2)
 def bmiCalc(height, weight):
   return ((weight * 703) / height**2)
@@ -48,8 +46,3 @@ while j < 6:
   print(f"{person} has a BMI of {bmi[j]} and is {health}.")
 
   j+=1
-
-
-# Append BMI into an array
-
-# The number of individuals in each of those categories should e displayed 
