@@ -1,3 +1,3 @@
 # Demo
 
-First time making a repo
+First time making a repo.
