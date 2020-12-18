@@ -1,36 +1,51 @@
-# Program to determine whether a password meets all the requirements for a secure password
+# Read in temps for 10 days in C and store into array
+while i > 0:
+  # Try/Except to catch anything other than number from being entered
+  try:
+    day_temp = int(input(f"Enter the temperature of day {days_in} in C: "))
 
-while True:
-  # Prompt the user for the candidate password
-  password = input("What would you like your password to be? ")
+    # Appending input into temps array
+    temps.append(day_temp)
 
-  # Storing password length in variable
-  passlength = len(password)
+    days_in += 1
+    i -= 1
 
-  # Variable to check for invalid sub strings
-  passwordSubStringCheck = password.lower()
+    # Create a new line after last prompt is entered
+    if i == 0:
+      print("\n")
+      
+  except ValueError:
+    print("\nYou can only enter numbers.")
 
+# Loop over and print out converted temps and count the type of day
+for i in temps:
+  # Convert each element in array to F
+  # F = (C x 1.8) + 32
+  f = round(((i *1.8) + 32), 1)
+  print(f"The temperature for day {days_out} is {f}F")
 
-  # Password must be at least 6 characters
-  if passlength < 6:
-    print("Your password must be at least 6 characters long\n")
-  
-  # Password must be no longer than 12 characters
-  elif passlength > 12:
-    print("Your password must be less than 12 characters long\n")
-  
-  # Password cannot contain 'umgc' in any combination of lower or upper case letters
-  elif "umgc" in passwordSubStringCheck:
-    print("The password cannot contain 'umgc' in any case\n")
+  # Determing thresholds and accounting for the number of cool, warm and hot days
 
-  # Checking to see if the first or last character in password contains '#'
-  elif password[0] == "#" or password[-1] == "#":
-    print("Cannot have '#' as first or last character in password\n")
-  
-  # Checking that the password contains '#'
-  elif "#" not in password:
-    print("Password must contain '#'\n")
+  # Cool days
+  if f <= 70:
+    print("It was a cool day\n")
+    cool += 1
 
-  else:
-    print("You have entered a valid password")
-    break
+  # Warm Days
+  elif f > 70 and f < 85:
+    print("It was a warm day\n")
+    warm += 1
+
+  # Hot Days  
+  elif f >= 85:
+    print("It was a hot day\n")
+    hot +=1
+
+  days_out += 1
+  i += 1
+
+# Count number of cool, warm, and hot days
+print(f"Number of cool days: {cool}\nNumber of warm days: {warm}\nNumber of hot days: {hot}\n")
+
+# Display entire array
+print(f"Elements of user input (Celsius) \n{temps}")
