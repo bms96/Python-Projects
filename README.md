@@ -1,6 +1,4 @@
-# CMIS-102: Introduction to Problem Solving and Algorithm Design with Python
-
-### This repository contains all of the projects/assignments that I have worked on during this class:
+# This repository contains all of the projects/assignments that I have worked on during this class:
 
 **Assignment 1:**
 
